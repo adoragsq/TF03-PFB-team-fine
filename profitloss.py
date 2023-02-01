@@ -5,7 +5,6 @@ fp = Path.cwd()/"csv_reports/profit-and-loss-usd.csv"
 file_path = Path.cwd()/"summary_report.txt"
 
 def profitloss():
-    ''''''
     with fp.open(mode="r", encoding="UTF-8", newline="") as file:
         reader = csv.reader(file)
         next(reader)
