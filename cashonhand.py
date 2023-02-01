@@ -5,6 +5,7 @@ fp = Path.cwd()/"csv_reports/cash-on-hand-usd.csv"
 file_path = Path.cwd()/"summary_report.txt"
 
 def cashonhand():
+    ''''''
     with fp.open(mode="r", encoding="UTF-8", newline="") as file:
         reader = csv.reader(file)
         next(reader)
