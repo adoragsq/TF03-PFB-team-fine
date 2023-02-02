@@ -6,8 +6,12 @@ fp = Path.cwd()/"csv_reports/overheads-day-90.csv"
 file_path = Path.cwd()/"summary_report.txt"
 #create a function maxoverhead() without any parameter
 def maxoverhead():
+    '''
+    The program will find the highest overhead category in the 'overheads.csv'file
+    '''
     #read the csv file to append overheads from the csv
     with fp.open(mode="r", encoding="UTF-8", newline="") as file:
+    
         reader = csv.reader(file)
         #skip header
         next(reader)
