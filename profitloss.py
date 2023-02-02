@@ -27,15 +27,18 @@ def profitloss():
             #if netprofit the previous day is higher than the net profit the next day, calculate deficit from previous day 
             #[1] referring to current day, [i+1] to add one more day to the current day, referring to the next day
             if netprofit[i][1] > netprofit[i+1][1]:
-                #add 1 to variable 'x' whenever there is a cash deficit, 'x' acts as a variable to keep track of profit deficits
+                #add 1 to variable 'x' whenever there is a profit deficit, 'x' acts as a variable to keep track of profit deficits
                 x += 1 
                 #create a variable 'deficit' to calculate the deficit by subtracting the next day's net profit from
                 # the current day's net profit 
                 deficit = netprofit[i][1] - netprofit[i+1][1]
+                #open file to apppend the statement to be printed if there is profit deficit
                 with file_path.open(mode='a') as file:
                     #print the output if there is a deficit in net profit compared to the previous day, with the amount in USD
                     file.write(f"\n[PROFIT DEFICIT] DAY: {netprofit[i+1][0]}, AMOUNT: USD{deficit}")
         #if there is no deficit, print statement that states that the net profit on each day is higher than the previous day
         if x == 0:
+            #open file to apppend the statement to be printed if there is no profit deficit
             with file_path.open(mode='a') as file:
                 file.write("\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY")
+        #if statements are used to check if there is a profit deficit, x==0 if there is no deficit
